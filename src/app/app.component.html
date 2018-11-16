@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-xs-8 col-xs-offset-2">
-        <!--$event - объект для передачи данных-->
-        <app-car-add (getNewCarInfo)="updateCars($event)"></app-car-add>
+        <!--был удален (getNewCarInfo)="updateCars($event), так как будем использовать сервис хранения данных-->
+        <app-car-add></app-car-add>
         <div class="list-group">
             <!--[наблюдаемое свойство]="значение применяемого свойства"-->
             <!--в компоненте app-car создадим объект carItem -> перенесем в алиас @Input(), сохраняя значение в переменную.-->

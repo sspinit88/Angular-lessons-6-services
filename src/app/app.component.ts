@@ -5,7 +5,7 @@ import {CarsService} from './cars.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    providers: [CarsService]
+    // providers: [CarsService]
 })
 
 export class AppComponent implements OnInit {
@@ -21,13 +21,6 @@ export class AppComponent implements OnInit {
     // забираем машины после полной инициализации
     ngOnInit() {
         this.cars = this.carServ.cars;
-    }
-
-    updateCars(car: { name: string }) {
-        if (car.name === '') {
-            return null;
-        }
-        this.carServ.addCarServ(car.name);
     }
 
 }

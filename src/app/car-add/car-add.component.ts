@@ -1,25 +1,25 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
+import {CarsService} from '../cars.service';
 
 @Component({
     selector: 'app-car-add',
     templateUrl: './car-add.component.html',
-    styleUrls: ['./car-add.component.css']
+    styleUrls: ['./car-add.component.css'],
+    // providers: [CarsService]
 })
 export class CarAddComponent implements OnInit {
 
     newCar = '';
 
-    // @Output говорит ng, о том, что (onAddCar) нужно поставить на прослушку
-    // сигннализируем далее через EventEmitter, в котором указываем, что он должен отправлять
-    // в <{}> указываем, что EventEmitter будет передавать.
-    @Output('getNewCarInfo') newCarEmmiter = new EventEmitter<{ name: string }>();
+    constructor(private carServ: CarsService) {
+
+    }
 
     addCar() {
-        // далее для передачи данных нужно обратиться к в/у полю и воспользоваться методом .emit()
-        // .emit() прописываем объект, который нужно передавать (тот из которого данные получаем).
-        this.newCarEmmiter.emit({
-            name: this.newCar
-        });
+        // более не нужен эмит, будем получать данные из сервиса
+        // что бы код корректно работал нужно регистрировать сервис в модуле
+        // providers: [CarsService] удаляем из компонент
+        this.carServ.addCarServ(this.newCar);
         this.newCar = '';
     }
 
