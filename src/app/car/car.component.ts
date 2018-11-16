@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 // импортируем сервис
 import {ConsoleService} from '../console.service';
 
+
 @Component({
     selector: 'app-car',
     templateUrl: './car.component.html',
