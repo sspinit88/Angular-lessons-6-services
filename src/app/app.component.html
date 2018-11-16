@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="col-xs-8 col-xs-offset-2">
+        <!--$event - объект для передачи данных-->
+        <app-car-add (getNewCarInfo)="updateCars($event)"></app-car-add>
+        <div class="list-group">
+            <!--[наблюдаемое свойство]="значение применяемого свойства"-->
+            <!--в компоненте app-car создадим объект carItem -> перенесем в алиас @Input(), сохраняя значение в переменную.-->
+            <app-car *ngFor="let car of cars" [carItem]="car"></app-car>
+        </div>
+
+    </div>
+</div>
+
+

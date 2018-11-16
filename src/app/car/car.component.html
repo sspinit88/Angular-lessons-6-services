@@ -1,0 +1,19 @@
+<div [ngClass]="getClass()">
+    <!--передаем объект-->
+    <h3>{{car.name}}</h3>
+    <div class="btn-block">
+        <button class="btn btn-primary"
+                [disabled]="car.isSold"
+                (click)="onAction('buy')"
+        >
+            Купить
+        </button>
+        <button class="btn btn-primary"
+                [disabled]="!car.isSold"
+                (click)="onAction('return')"
+        >
+            Отказаться
+        </button>
+    </div>
+</div>
+
